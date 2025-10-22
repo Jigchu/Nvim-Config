@@ -6,9 +6,6 @@ vim.lsp.config("clangd", {
     "clangd",
     "--completion-style=detailed",
   },
-  init_options = {
-    fallbackFlags = { "--target=x86_64-w64-windows-gnu" },
-  },
 })
 
 vim.lsp.config("ltex_plus", {
@@ -17,7 +14,7 @@ vim.lsp.config("ltex_plus", {
       checkFrequency = "save",
       language = "en-GB",
       additionalRules = {
-        languageModel = [[C:\Users\User\ngrams]],
+        languageModel = [[~/models/ngrams/]],
       },
     },
   },
@@ -32,8 +29,8 @@ require("conform").setup({
   },
   formatters = {
     clang_format = {
-      command = [[C:\Program Files\LLVM\bin\clang-format]],
-      prepend_args = { "-style", [[file:"C:\Users\User\.clang-format]] },
+      command = [[clang-format]],
+      prepend_args = { "-style", [[file:"~/.clang-format"]] },
     },
     isort = {
       command = "isort",

@@ -33,7 +33,7 @@ require("conform").setup({
   formatters = {
     clang_format = {
       command = [[C:\Program Files\LLVM\bin\clang-format]],
-      prepend_args = { "-style", [[file:"C:\Users\User\.clang-format]] },
+      prepend_args = { "-style", [[file:"C:\Users\User\.clang-format"]] },
     },
     isort = {
       command = "isort",

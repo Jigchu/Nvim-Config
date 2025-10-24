@@ -9,7 +9,7 @@ return {
     formatters = {
       clang_format = {
         command = [[clang-format]],
-        prepend_args = { "-style", [[file:"~/.clang-format"]] },
+        prepend_args = { "-style", [[file:~/.clang-format]] },
       },
       isort = {
         command = "isort",

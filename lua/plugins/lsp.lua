@@ -28,10 +28,6 @@ return {
       },
       basedpyright = {
         mason = false,
-        cmd = {
-          "basedpyright",
-          "--project ~/pyrightconfig.json",
-        },
       },
     },
   },

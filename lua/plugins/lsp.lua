@@ -13,16 +13,6 @@ return {
           },
         },
       },
-      clangd = {
-        mason = false,
-        cmd = {
-          "clangd",
-          "--completion-style=detailed",
-        },
-        init_options = {
-          fallbackFlags = { "--target=x86_64-w64-windows-gnu" },
-        },
-      },
       basedpyright = {
         cmd = {
           "basedpyright-langserver",

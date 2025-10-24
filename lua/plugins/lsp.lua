@@ -13,13 +13,6 @@ return {
           },
         },
       },
-      basedpyright = {
-        cmd = {
-          "basedpyright-langserver",
-          [[--project C:\Users\User\Documents\Lsp-Configs\pyrightconfig.json]],
-          "--stdio",
-        },
-      },
     },
   },
   dependencies = {

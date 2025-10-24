@@ -7,13 +7,16 @@ return {
     },
     formatters = {
       clang_format = {
-        command = [[C:\Program Files\LLVM\bin\clang-format]],
-        prepend_args = { "-style", [[file:"C:\Users\User\Documents\Lsp-Configs\.clang-format"]] },
+        command = { [[C:\Program Files\LLVM\bin\clang-format]] },
+        prepend_args = {
+          "-style",
+          'file:"C:\\Users\\User\\.clang-format"',
+        },
       },
       isort = {
         command = "isort",
         args = {
-          "-",
+          "--",
         },
       },
     },

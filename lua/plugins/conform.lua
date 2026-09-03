@@ -2,7 +2,7 @@ return {
   "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
-      python = { "isort", "black" },
+      python = { "black" },
       c = { "clang-format" },
     },
     formatters = {
@@ -10,13 +10,7 @@ return {
         command = { [[C:\Program Files\LLVM\bin\clang-format]] },
         prepend_args = {
           "-style",
-          'file:"C:\\Users\\User\\.clang-format"',
-        },
-      },
-      isort = {
-        command = "isort",
-        args = {
-          "--",
+          'file:"C:\\Users\\Admin\\.clang-format"',
         },
       },
     },

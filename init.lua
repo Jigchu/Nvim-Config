@@ -70,7 +70,7 @@ vim.lsp.config("clangd", {
 vim.lsp.config("ltex_plus", {
   settings = {
     ltex = {
-      checkFrequency = "save",
+      checkFrequency = "edit",
       language = "en-GB",
       additionalRules = {
         languageModel = vim.fn.expand("~/models/ngrams"),

@@ -5,6 +5,6 @@
 4. black
 5. isort
 6. clangd
-7. clang-formatter
+7. clang-format
 8. ltex-ls-plus
 9. texlab

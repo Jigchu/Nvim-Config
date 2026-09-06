@@ -13,6 +13,10 @@
       "rev": "39e1fda12c0704e01029b286a4c7e77e33a0c5cd",
       "src": "https://github.com/scottmckendry/cyberdream.nvim"
     },
+    "no-neck-pain.nvim": {
+      "rev": "0df6659e25401c3f3c40e82f1ddd48714b1a659c",
+      "src": "https://github.com/shortcuts/no-neck-pain.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "84252f9832fb5b9024fe9f7258e7c2aff915e6fb",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -23,8 +27,7 @@
     },
     "vimtex": {
       "rev": "9f6a5bb0a9c9f1542fe88dc07511ce8401242e2a",
-      "src": "https://github.com/lervag/vimtex",
-      "version": "'v2.15'"
+      "src": "https://github.com/lervag/vimtex"
     }
   }
 }

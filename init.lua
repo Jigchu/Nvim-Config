@@ -1,3 +1,8 @@
+require("options")
+require("keymaps")
+
+local pathToScratchPad = vim.fn.stdpath("data") .. "/notes.md"
+
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
@@ -19,7 +24,8 @@ vim.pack.add({
     src = "https://github.com/saghen/blink.cmp",
     version = vim.version.range("1.x"),
   },
-  { src = "https://github.com/lervag/vimtex", version = "v2.15" },
+  { src = "https://github.com/lervag/vimtex" },
+  { src = "https://github.com/shortcuts/no-neck-pain.nvim" },
 })
 
 require("cyberdream").setup({
@@ -54,6 +60,20 @@ require("conform").setup({
   format_on_save = {
     timeout_ms = 500,
     lsp_format = "fallback",
+  },
+})
+
+require("no-neck-pain").setup({
+  mappings = { enabled = true },
+  buffers = {
+    left = {
+      enabled = true,
+      scratchPad = {
+        enabled = true,
+        pathToFile = pathToScratchPad,
+      },
+    },
+    right = { enabled = false },
   },
 })
 
@@ -97,11 +117,3 @@ vim.g.vimtex_compiler_latexmk = {
 
 vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "ltex_plus", "texlab" })
 vim.cmd.colorscheme("cyberdream")
-
-vim.wo.relativenumber = true
-
-vim.o.wrap = false
-vim.o.tabstop = 4
-vim.o.expandtab = true
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4

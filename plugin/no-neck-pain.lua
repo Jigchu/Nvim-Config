@@ -1,7 +1,10 @@
 local pathToScratchPad = vim.fn.stdpath("data") .. "/notes.md"
+-- Only open the right buffer for tex/md files
+local pathToScratchPadRight = vim.fn.stdpath("data") .. "/notes_right.md"
 
 local function is_scratch_pad_buf(buf)
-  return vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf) == pathToScratchPad
+  return vim.api.nvim_buf_is_valid(buf)
+    and (vim.api.nvim_buf_get_name(buf) == pathToScratchPad or vim.api.nvim_buf_get_name(buf) == pathToScratchPadRight)
 end
 
 vim.api.nvim_create_autocmd({ "WinClosed" }, {
@@ -38,6 +41,12 @@ require("no-neck-pain").setup({
         pathToFile = pathToScratchPad,
       },
     },
-    right = { enabled = false },
+    right = {
+      enabled = false,
+      scratchPad = {
+        enabled = true,
+        pathToFile = pathToScratchPadRight,
+      },
+    },
   },
 })

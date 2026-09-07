@@ -1,12 +1,24 @@
--- Maybe set autocmds.skipEnteringNoNeckPainBuffer
--- May also add VimLeavePre autocmd
-
 local pathToScratchPad = vim.fn.stdpath("data") .. "/notes.md"
+
+local function is_scratch_pad_buf(buf)
+  return vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf) == pathToScratchPad
+end
 
 vim.api.nvim_create_autocmd({ "WinClosed" }, {
   callback = function(ev)
     local buf = vim.api.nvim_win_get_buf(tonumber(ev.match))
-    if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf) == pathToScratchPad then
+    if is_scratch_pad_buf(buf) then
+      vim.api.nvim_buf_call(buf, function()
+        vim.cmd("silent! update")
+      end)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
+  callback = function(ev)
+    local bufs = vim.tbl_filter(is_scratch_pad_buf, vim.api.nvim_list_bufs())
+    for _, buf in ipairs(bufs) do
       vim.api.nvim_buf_call(buf, function()
         vim.cmd("silent! update")
       end)
